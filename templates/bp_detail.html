@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} BP Entry - {{entry.date}} {{entry.time}}{% endblock %}
+
+{% block content %}
+    <h2>Blood Pressure Entry</h2>
+
+    <p><strong>Date:</strong> {{ entry.date }}</p>
+    <p><strong>Time:</strong> {{ entry.time }}</p>
+    <p><strong>Blood Pressure:</strong> {{ entry.systolic}}/{{ entry.diastolic }}</p>
+    <p><strong>Pulse:</strong> {{ entry.pulse }}</p>
+    <p><strong>Note:</strong> {{ entry.note }}</p>
+
+    <p><a href="{% url 'home' %}">&larr; Back to list</a></p>
+{% endblock %}

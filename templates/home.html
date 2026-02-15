@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Pulse & Pen</title>
-</head>
-<body>
-    <h1>Pulse & Pen - Home</h1>
-    <p>Hello, Pulse & Pen is working!</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Home - Pulse & Pen{% endblock %}
+
+{% block content %}
+    <h2> Your Blood Pressure Entries (sample data)</h2>
+
+    {% if bp_entries %}
+        <ul>
+            {% for entry in bp_entries %}
+                <li>
+                    <a href="{% url 'bp_detail' entry.id %}">
+                        {{ entry.date }} {{entry.time}} - 
+                        {{ entry.systolic }}/{{ entry.diastolic }} (pulse {{ entry.pulse }})    
+                    </a>
+                    {% if entry.note %}
+                        - {{ entry.note }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No entries yet.</p>
+    {% endif %}
+{% endblock %}
