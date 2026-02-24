@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="{% static\heartline\css %}">
-    <title>{% Pulse &amp; Pen - BP Journal &amp; LifeTracker %}</title>
+    <title>Pulse &amp; Pen - BP Journal &amp; LifeTracker</title>
+    <link rel="stylesheet" href="{% static 'heartline/css/style.css' %}">
 </head>
 <body>
     <header class="navbar">
         <div class="navbar-brand">
             Pulse &amp; Pen
         </div>
-        
+
         <nav class="navbar-links">
         <a href="#">home</a>
         <a href="#">BP Entries</a>
@@ -20,11 +20,9 @@
     </nav>
     </header>
 
-    
-
     <main class="container">
-        {% Block content %}
-        {endblock}
+        {% block content %}
+        {% endblock %}
     </main>
 
     <footer class="footer">
