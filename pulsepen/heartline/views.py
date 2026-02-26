@@ -1,7 +1,22 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from .models import BPEntry
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'heartline/register.html', {'form': form})
+
 
 class BPEntryListView(ListView):
     model = BPEntry
