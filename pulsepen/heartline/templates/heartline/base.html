@@ -14,15 +14,18 @@
         </div>
 
         <nav class="navbar-links">
-        <a href="#">home</a>
-        <a href="#">BP Entries</a>
-        <a href="#">Journal</a>
-    </nav>
+            <a href="#">Home</a>
+            <a href="#">BP Entries</a>
+            <a href="#">Journal</a>
+        </nav>
     </header>
 
-    <main class="container">
-        {% block content %}
-        {% endblock %}
+    <!-- Page main area: this will take up the space between navbar and footer -->
+    <main class="page-main">
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
     </main>
 
     <footer class="footer">

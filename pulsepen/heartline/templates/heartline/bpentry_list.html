@@ -1,0 +1,29 @@
+{% extends 'heartline/base.html' %}
+
+{% block content %}
+    <h1>Blood Pressure Entries</h1>
+
+    <p>
+        <a href="{% url 'bpentry-create' %}">Add new BP entry</a>
+    </p>
+
+    {% for entry in bp_entries %}
+        <article>
+            <h2>
+                <a href="{% url 'bpentry-detail' entry.pk %}">
+                    {{ entry.date }} at {{ entry.time }}
+                </a>
+            </h2>
+            <p>
+                {{ entry.systolic }}/{{ entry.diastolic }} mmHg,
+                Pulse: {{ entry.pulse }}
+            </p>
+            {% if entry.note %}
+                <p><em>{{ entry.note }}</em></p>
+            {% endif %}
+        </article>
+        <hr>
+    {% empty %}
+        <p>No BP entries recorded yet.</p>
+    {% endfor %}
+{% endblock %}

@@ -1,45 +1,73 @@
+/* Pulse & Pen CSS v2 */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #0b0c10;
-    color: #ffffff;
+    background-color: #f2f7ff;   /* soft light blue */
+    color: #1f2933;              /* dark, readable text */
+
+    /* Make the whole page fill the viewport and stack header, main, footer */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+/* NAVBAR */
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1f2833;
+    background-color: #2563eb;   /* uplifting blue */
     padding: 10px 20px;
 }
 
 .navbar-brand {
     font-weight: bold;
     font-size: 1.2rem;
+    color: #ffffff;
 }
 
 .navbar-links a {
-    color: #c5c6c7;
+    color: #e5ecff;              /* light text on blue */
     margin-left: 15px;
     text-decoration: none;
 }
 
 .navbar-links a:hover {
-     color: #66fcf1;
+    color: #ffffff;              /* brighter on hover */
 }
 
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #1f2833;
-    border-radius: 8px;
+/* MAIN PAGE AREA */
+
+.page-main {
+    flex: 1;                     /* take remaining space between navbar and footer */
+    display: flex;
+    justify-content: center;     /* center container horizontally */
+    align-items: flex-start;     /* keep content near top, not vertically centered */
+    padding-bottom: 24px;        /* some breathing room above footer */
 }
+
+/* MAIN CONTAINER (BP entries, forms, etc.) */
+
+.container {
+    max-width: 800px;            /* wider card for BP entries */
+    width: 100%;
+    margin-top: 32px;            /* space below navbar */
+    padding: 20px 24px 28px;
+    background-color: #ffffff;   /* clean white card */
+    border-radius: 16px;         /* soft corners */
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);  /* light shadow */
+    border: 1px solid #e5e9f5;   /* subtle border */
+}
+
+/* FOOTER */
 
 .footer {
     text-align: center;
-    padding: 15px 0;
-    background-color: #1f2833;
-    color: #c5c6c7;
-    margin-top: 40px;
+    padding: 10px 0 18px;
+    background-color: transparent;  /* no solid bar */
+    color: #6b7280;                 /* gentle grey text */
+    font-size: 0.9rem;
+    margin-top: 0;                  /* no extra gap; body flex pushes it to bottom */
 }

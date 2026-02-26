@@ -1,0 +1,20 @@
+{% extends 'heartline/base.html' %}
+
+{% block content %}
+    <h1>BP Entry Details</h1>
+
+    <p><strong>Date:</strong> {{ object.date }}</p>
+    <p><strong>Time:</strong> {{ object.time }}</p>
+    <p><strong>Blood Pressure:</strong> {{ object.systolic }}/{{ object.diastolic }} mmHg</p>
+    <p><strong>Pulse:</strong> {{ object.pulse }}</p>
+
+    {% if object.note %}
+        <p><strong>Note:</strong> {{ object.note }}</p>
+    {% endif %}
+
+    <p>
+        <a href="{% url 'bpentry-update' object.pk %}">Edit this entry</a> |
+        <a href="{% url 'bpentry-delete' object.pk %}">Delete this entry</a> |
+        <a href="{% url 'bpentry-list' %}">Back to list</a>
+    </p>
+{% endblock %}
