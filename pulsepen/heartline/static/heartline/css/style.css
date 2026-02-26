@@ -38,6 +38,21 @@ body {
     color: #ffffff;              /* brighter on hover */
 }
 
+/* Button in navbar that looks like a link */
+.navbar-logout-button {
+    background: none;
+    border: none;
+    color: #e5ecff;      /* same as other navbar links */
+    margin-left: 15px;
+    padding: 0;
+    font: inherit;       /* use the same font as the navbar */
+    cursor: pointer;
+}
+
+.navbar-logout-button:hover {
+    color: #ffffff;      /* same hover color as navbar-links a:hover */
+}
+
 /* MAIN PAGE AREA */
 
 .page-main {
