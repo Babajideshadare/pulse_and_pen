@@ -20,7 +20,7 @@ def register(request):
     return render(request, 'heartline/register.html', {'form': form})
 
 
-class BPEntryListView(ListView):
+class BPEntryListView(LoginRequiredMixin, ListView):
     model = BPEntry
     template_name = 'heartline/bpentry_list.html'
     context_object_name = 'bp_entries'
@@ -51,7 +51,7 @@ class BPEntryCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class BPEntryUpdateView(UpdateView):
+class BPEntryUpdateView(LoginRequiredMixin, UpdateView):
     model = BPEntry
     fields = ('date', 'time', 'systolic', 'diastolic', 'pulse', 'note')
     template_name = 'heartline/bpentry_form.html'
