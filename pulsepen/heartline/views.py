@@ -93,7 +93,7 @@ class JournalEntryListView(LoginRequiredMixin, ListView):
     
 class JournalEntryCreateView(LoginRequiredMixin, CreateView):
     model = JournalEntry
-    fields = ('date', 'sleep_hours', 'sleep_quality', 'exercise_type', 'exercise_duration', 'diet_note', 'mood_stress_level')
+    fields = ('date', 'sleep_hours', 'sleep_quality', 'exercise_type', 'exercise_duration', 'diet_notes', 'mood_stress_level')
     template_name = 'heartline/journalentry_form.html'
     success_url = reverse_lazy('journalentry-list')
     login_url = 'login'
@@ -113,7 +113,7 @@ class JournalEntryDetailView(LoginRequiredMixin, DetailView):
 
 class JournalEntryUpdateView(LoginRequiredMixin, UpdateView):
     model = JournalEntry
-    fields = ('date', 'sleep_hours', 'sleep_quality', 'exercise_type', 'exercise_duration', 'diet_note', 'mood_stress_level')
+    fields = ('date', 'sleep_hours', 'sleep_quality', 'exercise_type', 'exercise_duration', 'diet_notes', 'mood_stress_level')
     template_name = 'heartline/journalentry_form.html'
     success_url = reverse_lazy('journalentry-list')
     login_url = 'login'
