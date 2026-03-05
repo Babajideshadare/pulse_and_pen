@@ -1,0 +1,31 @@
+{% extends 'heartline/base.html' %}
+
+{% block content %}
+    <h1 class="auth-title">Journal Entries</h1>
+
+    <p>
+        <a href="{% url 'journalentry-create' %}">Add new Journal entry</a>
+    </p>
+
+    {% for entry in journal_entries %}
+        <article>
+            <h2>{{ entry.date }}</h2>
+           <p><strong>Sleep:</strong> {{ entry.sleep_hours }} hours ({{ entry.sleep_quality }})</p>
+            <p><strong>Exercise:</strong> {{ entry.exercise_type }}{% if entry.exercise_duration %} for {{ entry.exercise_duration }} minutes{% endif %}</p>
+            {% if entry.diet_notes %}
+                <p><strong>Diet:</strong> {{ entry.diet_notes }}</p>
+            {% endif %}
+            {% if entry.mood_stress_level %}
+                <p><strong>Mood/Stress:</strong> {{ entry.mood_stress_level }}</p>
+            {% endif %}
+
+            <p>
+                <a href="{% url 'journalentry-update' entry.pk %}">Edit</a> |
+                <a href="{% url 'journalentry-delete' entry.pk %}">Delete</a>
+            </p>
+        </article>
+        <hr>
+    {% empty %}
+        <p>No journal entries have been recorded yet.</p>
+    {% endfor %}
+{% endblock %}
