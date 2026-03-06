@@ -127,7 +127,7 @@ class JournalEntryDeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         return JournalEntry.objects.filter(user=self.request.user)
     
-class DashboardView(LoginRequiredMixin, TemplateView),
+class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'heartline/dashboard.html'
     login_url = 'login'
 
@@ -142,3 +142,5 @@ class DashboardView(LoginRequiredMixin, TemplateView),
         journal_qs = JournalEntry.objects.filter(user=user).order_by('-date')
         context['journal_count'] = journal_qs.count()
         context['recent_journal_entries'] = journal_qs[:5]
+
+        return context
