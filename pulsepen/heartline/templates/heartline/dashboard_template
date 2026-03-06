@@ -1,0 +1,44 @@
+{% extends 'heartline/base.html' %}
+
+{% block content %}
+    <h1 class="auth-title">Your Health Dashboard</h1>
+
+    <section class="container-section">
+        <h2>Blood Pressure Summary</h2>
+        <p>You have {{ bp_count }} blood pressure entries.</p>
+
+        {% if recent_bp_entries %}
+            <h3>Recent BP Entries</h3>
+            <ul>
+                {% for entry in recent_bp_entries %}
+                    <li>
+                        {{ entry.date }} {{ entry.time }}:
+                        {{ entry.systolic }}/{{ entry.diastolic }} mmHg, pulse {{ entry.pulse }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No BP entries yet. <a href="{% url 'bpentry-create' %}">Add one</a>.</p>
+        {% endif %}
+    </section>
+
+    <section class="container-section" style="margin-top: 24px;">
+        <h2>Journal Summary</h2>
+        <p>You have {{ journal_count }} journal entries.</p>
+
+        {% if recent_journal_entries %}
+            <h3>Recent Journal Entries</h3>
+            <ul>
+                {% for entry in recent_journal_entries %}
+                    <li>
+                        {{ entry.date }} –
+                        {% if entry.sleep_hours %}Sleep: {{ entry.sleep_hours }}h{% endif %}
+                        {% if entry.mood_stress_level %} | Mood/Stress: {{ entry.mood_stress_level }}{% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No journal entries yet. <a href="{% url 'journalentry-create' %}">Add one</a>.</p>
+        {% endif %}
+    </section>
+{% endblock %}

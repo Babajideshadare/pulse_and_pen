@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.urls import reverse_lazy
 
 from .models import BPEntry, JournalEntry
@@ -126,3 +126,19 @@ class JournalEntryDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_queryset(self):
         return JournalEntry.objects.filter(user=self.request.user)
+    
+class DashboardView(LoginRequiredMixin, TemplateView),
+    template_name = 'heartline/dashboard.html'
+    login_url = 'login'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        bp_qs = BPEntry.objects.filter(user=user).order_by('-date', '-time')
+        context['bp_count'] = bp_qs.count()
+        context['recent_bp_entries'] = bp_qs[:5]
+
+        journal_qs = JournalEntry.objects.filter(user=user).order_by('-date')
+        context['journal_count'] = journal_qs.count()
+        context['recent_journal_entries'] = journal_qs[:5]
