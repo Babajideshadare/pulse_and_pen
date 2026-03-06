@@ -20,9 +20,6 @@ def register(request):
 
 @login_required
 def profile(request):
-    """
-    Simple profile view allowing the user to edit their email.
-    """
     if request.method == 'POST':
         form = ProfileForm(request.POST, instance=request.user)
         if form.is_valid():
