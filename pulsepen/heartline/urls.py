@@ -17,6 +17,7 @@ from .views import (
 )
 
 urlpatterns = [
+    path('', DashboardView.as_view(), name='home'),
     path('login/', auth_views.LoginView.as_view(template_name='heartline/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='heartline/logout.html'), name='logout'),
     path('register/', register, name ='register'),
