@@ -68,3 +68,26 @@ Pulse & Pen lets each user:
 - SQLite (default development database)
 - HTML templates + CSS (no frontend framework)
 
+## Web Interface
+
+**Main routes:**
+/ or /dashboard/ – Dashboard (login required)
+/register/ – Register a new account
+/login/ – Login
+/logout/ – Logout
+/profile/ – Update email
+
+**Blood Pressure:**
+/bp/ – List BP entries
+/bp/new/ – Create new BP entry
+/bp/<id>/ – View a BP entry
+/bp/<id>/update/ – Edit a BP entry
+/bp/<id>/delete/ – Delete a BP entry
+
+**Journal:**
+/journal/ – List journal entries
+/journal/new/ – Create new journal entry
+/journal/<id>/ – View journal entry
+/journal/<id>/update/ – Edit journal entry
+/journal/<id>/delete/ – Delete journal entry
+
