@@ -28,61 +28,67 @@ body {
     color: #ffffff;
 }
 
+.navbar-brand a {
+    color: #e5ecff;              
+    margin-left: 15px;
+    text-decoration: none;
+}
+
 .navbar-links a {
-    color: #e5ecff;              /* light text on blue */
+    color: #e5ecff;              
     margin-left: 15px;
     text-decoration: none;
 }
 
 .navbar-links a:hover {
-    color: #ffffff;              /* brighter on hover */
+    color: #ffffff;              
 }
 
-/* Button in navbar that looks like a link */
+
 .navbar-logout-button {
     background: none;
     border: none;
-    color: #e5ecff;      /* same as other navbar links */
+    color: #e5ecff;     
     margin-left: 15px;
     padding: 0;
-    font: inherit;       /* use the same font as the navbar */
+    font: inherit;       
     cursor: pointer;
 }
 
 .navbar-logout-button:hover {
-    color: #ffffff;      /* same hover color as navbar-links a:hover */
-}
+    color: #ffffff;
+}      
 
-/* MAIN PAGE AREA */
+
 
 .page-main {
-    flex: 1;                     /* take remaining space between navbar and footer */
+    flex: 1;                     
     display: flex;
-    justify-content: center;     /* center container horizontally */
-    align-items: flex-start;     /* keep content near top, not vertically centered */
-    padding-bottom: 24px;        /* some breathing room above footer */
+    justify-content: center;     
+    align-items: flex-start;    
+    padding-bottom: 24px;        
 }
 
-/* MAIN CONTAINER (BP entries, forms, etc.) */
+
 
 .container {
-    max-width: 800px;            /* wider card for BP entries */
+    max-width: 800px;           
     width: 100%;
-    margin-top: 32px;            /* space below navbar */
+    margin-top: 32px;            
     padding: 20px 24px 28px;
-    background-color: #ffffff;   /* clean white card */
-    border-radius: 16px;         /* soft corners */
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);  /* light shadow */
-    border: 1px solid #e5e9f5;   /* subtle border */
+    background-color: #ffffff;   
+    border-radius: 16px;        
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);  
+    border: 1px solid #e5e9f5;   
 }
 
-/* FOOTER */
+
 
 .footer {
     text-align: center;
     padding: 10px 0 18px;
-    background-color: transparent;  /* no solid bar */
-    color: #6b7280;                 /* gentle grey text */
+    background-color: transparent;  
+    color: #6b7280;                 
     font-size: 0.9rem;
-    margin-top: 0;                  /* no extra gap; body flex pushes it to bottom */
+    margin-top: 0;
 }
